@@ -1,4 +1,4 @@
-class RegistrationController < ApplicationController
+class RegistrationsController < ApplicationController
 	def new
 		@user = User.new
 	end
@@ -9,9 +9,11 @@ class RegistrationController < ApplicationController
 			session[:user_id] = @user.id
 			redirect_to root_path, notice: "successfully created account"
 		else
+			flash[:alert] = "Something went wrong"
 			render :new
 		end
 	end
+	
 
 	private
 

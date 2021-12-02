@@ -6,6 +6,7 @@
 
 class User < ApplicationRecord
 	has_secure_password
-
-	validates :email, presence: true
+	has_many :twitter_accounts
+	has_many :tweets
+	validates :email, uniqueness: true, presence: true
 end
